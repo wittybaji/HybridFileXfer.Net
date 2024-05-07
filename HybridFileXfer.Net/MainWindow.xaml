@@ -5,16 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HybridFileXfer.Net"
         xmlns:vms="clr-namespace:HybridFileXfer.Net.ViewModels"
-        xmlns:views="clr-namespace:HybridFileXfer.Net.Views"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         Title="双轨快传"
-        Width="800"
-        Height="450"
-        Closed="Window_Closed"
+        Width="450"
+        Height="280"
+        ResizeMode="CanMinimize"
         d:DataContext="{d:DesignInstance Type=vms:MainWindowViewModel}"
+        Closed="Window_Closed"
         ContentRendered="Window_ContentRendered"
         mc:Ignorable="d">
-    <Grid>
-        <views:Loading VerticalAlignment="Center" Visibility="{Binding Loading}" />
-    </Grid>
+    <Border Padding="10" CornerRadius="4">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="设备"
+                           FontSize="18" />
+                <ComboBox Grid.Column="1"
+                          Height="40"
+                          SelectedIndex="0"
+                          ItemsSource="{Binding DeviceList}" />
+                <Button Grid.Column="2"
+                        Width="80"
+                        Height="40"
+                        Content="刷新"
+                        FontSize="18"
+                        Command="{Binding RefreshDeviceCommand}" />
+                <TextBlock Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Text="网卡"
+                           FontSize="18" />
+                <ComboBox Grid.Row="1"
+                          Grid.Column="1"
+                          Height="40"
+                          SelectedIndex="0"
+                          ItemsSource="{Binding NetworkList}" />
+                <Button Grid.Row="1"
+                        Grid.Column="2"
+                        Width="80"
+                        Height="40"
+                        Content="刷新"
+                        FontSize="18"
+                        Command="{Binding RefreshNetworkCommand}" />
+            </Grid>
+            <Button Grid.Row="1"
+                    Grid.Column="1"
+                    Width="180"
+                    Height="50"
+                    Content="开启文件服务"
+                    FontSize="22"
+                    Command="{Binding StartServiceCommand}" />
+            <Grid Grid.RowSpan="2"
+                  d:Visibility="Collapsed"
+                  Background="White"
+                  Visibility="{Binding Loading}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <hc:LoadingCircle VerticalAlignment="Center" />
+                <TextBlock Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Text="正在初始化ADB..."
+                           FontSize="22" />
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

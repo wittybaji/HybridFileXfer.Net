@@ -12,10 +12,10 @@ namespace HybridFileXfer.Net.Models
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        private readonly Action<object> _excute;
-        private readonly Func<object, bool> _canExecute;
+        private readonly Action _excute;
+        private readonly Func<bool> _canExecute;
 
-        public RelayCommand(Action<object> excute, Func<object, bool> canExecute = null)
+        public RelayCommand(Action excute, Func<bool> canExecute = null)
         {
             _excute = excute;
             _canExecute = canExecute;
@@ -24,30 +24,29 @@ namespace HybridFileXfer.Net.Models
         /// <summary>
         /// 执行
         /// </summary>
-        /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            SafelyInvoke(_excute, parameter);
+            SafelyInvoke(_excute);
         }
 
         /// <summary>
         /// 是否可以执行
         /// </summary>
-        /// <param name="parameter"></param>
         /// <returns></returns>
         public bool CanExecute(object parameter)
         {
-            return _canExecute == null || _canExecute(parameter);
+            return _canExecute == null || _canExecute();
         }
 
         /// <summary>
         /// 安全执行
         /// </summary>
         /// <param name="action"></param>
-        public void SafelyInvoke(Action<object> action, object parameter)
+        public void SafelyInvoke(Action action)
         {
-            try { action.Invoke(parameter); }
+            try { action.Invoke(); }
             catch (Exception ex) { Log.Ex(ex, "RelayCommandException"); }
         }
+
     }
 }
