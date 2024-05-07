@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HybridFileXfer.Net", "HybridFileXfer.Net\HybridFileXfer.Net.csproj", "{CFBCD6CF-806A-42BD-8D46-D92715885EDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFBCD6CF-806A-42BD-8D46-D92715885EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFBCD6CF-806A-42BD-8D46-D92715885EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFBCD6CF-806A-42BD-8D46-D92715885EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFBCD6CF-806A-42BD-8D46-D92715885EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E66E760-A227-4A61-8E1B-94FA18C9E38F}
+	EndGlobalSection
+EndGlobal

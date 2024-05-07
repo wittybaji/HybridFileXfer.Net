@@ -1,0 +1,20 @@
+﻿<Window x:Class="HybridFileXfer.Net.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HybridFileXfer.Net"
+        xmlns:vms="clr-namespace:HybridFileXfer.Net.ViewModels"
+        xmlns:views="clr-namespace:HybridFileXfer.Net.Views"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        Title="双轨快传"
+        Width="800"
+        Height="450"
+        Closed="Window_Closed"
+        d:DataContext="{d:DesignInstance Type=vms:MainWindowViewModel}"
+        ContentRendered="Window_ContentRendered"
+        mc:Ignorable="d">
+    <Grid>
+        <views:Loading VerticalAlignment="Center" Visibility="{Binding Loading}" />
+    </Grid>
+</Window>
